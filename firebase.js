@@ -3,7 +3,7 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "",
+  apiKey: "REDACTED",
   authDomain: "REDACTED",
   projectId: "REDACTED",
   storageBucket: REDACTED,

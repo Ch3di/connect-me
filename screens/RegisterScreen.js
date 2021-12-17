@@ -18,22 +18,13 @@ function RegisterScreen({ navigation }) {
   }, [navigation]);
 
   const register = () => {
-    createUserWithEmailAndPassword(auth, email, password).catch((error) =>
-      alert(error.code)
-    );
-    // .then((userCredential) => {
-    //     const user = userCredential.user;
-    //     alert(user);
-    // })
-    // .catch((error) => alert(error.code));
-    // auth.createUserWithEmailAndPassword(email, password)
-    //     .then((authUser) => {
-    //         authUser.user.update({
-    //             displayName: name,
-    //             photoURL: imageUrl || "",
-    //         });
-    //     })
-    //     .catch((error) => alert(error.message));
+    alert(name);
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        alert(user.email);
+      })
+      .catch((error) => alert(error.message));
   };
 
   return (
@@ -47,23 +38,23 @@ function RegisterScreen({ navigation }) {
           placeholder="Full name"
           autoFocus
           value={name}
-          onChange={(text) => setName(text)}
+          onChangeText={(text) => setName(text)}
         />
         <Input
           placeholder="Email"
           value={email}
-          onChange={(text) => setEmail(text)}
+          onChangeText={(text) => setEmail(text)}
         />
         <Input
           placeholder="Password"
           secureTextEntry
           value={password}
-          onChange={(text) => setPassword(text)}
+          onChangeText={(text) => setPassword(text)}
         />
         <Input
           placeholder="Default Picture Url"
           value={imageUrl}
-          onChange={(text) => setImageUrl(text)}
+          onChangeText={(text) => setImageUrl(text)}
           onSubmitEditing={register}
         />
       </View>
